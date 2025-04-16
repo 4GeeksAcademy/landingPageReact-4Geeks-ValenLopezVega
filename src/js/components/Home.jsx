@@ -1,27 +1,46 @@
 import React from "react";
-
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import { Navbar } from "./Navbar";
+import { Jumbotron } from "./Jumbotron";
+import { Card } from "./Card"; 
+import { Footer } from "./Footer";
 
 //create your first component
 const Home = () => {
+	const arrCard = [
+		{
+			title: 'First Card',
+			descripciones: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor enim repellat aperiam fugit quas, assumenda vero eveniet soluta, amet commodi ad asperiores reiciendis quod ipsum, similique obcaecati itaque est deleniti'
+		},
+		{
+			title: 'Second Card',
+			descripciones: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor enim repellat aperiam fugit quas, assumenda vero eveniet soluta, amet commodi ad asperiores reiciendis quod ipsum, similique obcaecati itaque est deleniti'
+		},
+		{
+			title: 'Third Card',
+			descripciones: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor enim repellat aperiam fugit quas, assumenda vero eveniet soluta, amet commodi ad asperiores reiciendis quod ipsum, similique obcaecati itaque est deleniti'
+		},
+		{
+			title: 'Fourth Card',
+			descripciones: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor enim repellat aperiam fugit quas, assumenda vero eveniet soluta, amet commodi ad asperiores reiciendis quod ipsum, similique obcaecati itaque est deleniti'
+		}
+	]
 	return (
-		<div className="text-center">
-            
-
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
+		<>
+			<Navbar />
+			<div className="container">
+				<Jumbotron />
+				<div className="row">
+					{
+						arrCard.map((item, index) => {
+							return (
+								<Card key={index} cardDetail={item} />
+							)
+						})
+					}
+				</div>
+			</div>
+			<Footer/>
+		</>
 	);
 };
 
